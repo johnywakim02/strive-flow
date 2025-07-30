@@ -31,7 +31,7 @@ class TabbedScaffold extends StatelessWidget{
         items: const [
           BottomNavigationBarItem(label: 'Visualize', icon: Icon(Icons.insights)),
           BottomNavigationBarItem(label: 'Create', icon: Icon(Icons.create)),
-          BottomNavigationBarItem(label: 'Conquer', icon: Icon(Icons.place)),
+          BottomNavigationBarItem(label: 'Conquer', icon: Icon(Icons.emoji_events)),
           BottomNavigationBarItem(label: 'Level Up', icon: Icon(Icons.star)),
         ],
       ), 
