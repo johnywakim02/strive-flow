@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:strive_flow/core/navigation/go_router_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,17 +10,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("StriveFlow"),
-        ),
-        body: Center(child: Text("Welcome to StriveFlow"))
-      ),
+      routerConfig: router,
     );
   }
 }
