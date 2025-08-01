@@ -5,4 +5,5 @@ class GoRouterPaths {
     "/conquer",
     "/level_up"
   ];
+  static String createPrinciple = '/create/principle';
 }

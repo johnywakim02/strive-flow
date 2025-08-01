@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:strive_flow/core/navigation/go_router_paths.dart';
 import 'package:strive_flow/ui/create/widgets/create_option_card.dart';
 
 class CreatePage extends StatelessWidget{
   const CreatePage({super.key});
+  final int _selectedIndex = 1;
 
-  handlePrinciplesOnTapped(){
-    debugPrint("To Implement");
+  handlePrinciplesOnTapped(BuildContext context){
+    context.push(GoRouterPaths.createPrinciple, extra: _selectedIndex);
   }
   
   handleRulesOnTapped(){
@@ -33,7 +36,7 @@ class CreatePage extends StatelessWidget{
             title: "Principles",
             color: colorScheme.primary.withAlpha(splashOpacity), 
             iconData: Icons.lightbulb_outline,
-            onTap: handlePrinciplesOnTapped
+            onTap: () => handlePrinciplesOnTapped(context)
           ),
           CreateOptionCard(
             title: "Rules",
