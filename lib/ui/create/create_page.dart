@@ -7,15 +7,15 @@ class CreatePage extends StatelessWidget{
   const CreatePage({super.key});
   final int _selectedIndex = 1;
 
-  handlePrinciplesOnTapped(BuildContext context){
+  void handlePrinciplesOnTapped(BuildContext context){
     context.push(GoRouterPaths.createPrinciple, extra: _selectedIndex);
   }
   
-  handleRulesOnTapped(){
+  void handleRulesOnTapped(){
     debugPrint("To Implement");
   }
 
-  handleHabitsOnTapped(){
+  void handleHabitsOnTapped(){
     debugPrint("To Implement");
   }
 

@@ -16,10 +16,7 @@ void main() async {
     Hive.initFlutter(); // Works for web and desktop
   }
 
-  var box = await Hive.openBox('testBox'); // open a box and get the instance to it
-  await box.put('test', 'test_data'); // store a value
-  var name = box.get('test'); // retrieve a value
-  debugPrint(name);
+  await Hive.openBox<String>('principles');
 
   runApp(const MyApp());
 }
