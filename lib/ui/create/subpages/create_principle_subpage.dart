@@ -29,6 +29,12 @@ class _CreatePrincipleSubpageState extends State<CreatePrincipleSubpage> {
     }
   }
 
+  Future<void> _deletePrinciple(int index) async {
+    final keyToDelete = _principleBox.keyAt(index);
+    await _principleBox.delete(keyToDelete);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     final principles = _principleBox.values.toList();
@@ -44,7 +50,9 @@ class _CreatePrincipleSubpageState extends State<CreatePrincipleSubpage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            MyPrinciplesSection(principles: principles),
+            MyPrinciplesSection(
+              principles: principles, 
+              onDelete: _deletePrinciple,),
             CreatePrincipleSection(
               controller: _controller,
               onAdd: _addPrinciple,
