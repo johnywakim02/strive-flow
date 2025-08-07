@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Principle {
 
- String get title; String get description;
+@HiveField(0) String get title;@HiveField(1) String get description;
 /// Create a copy of Principle
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -48,7 +48,7 @@ abstract mixin class $PrincipleCopyWith<$Res>  {
   factory $PrincipleCopyWith(Principle value, $Res Function(Principle) _then) = _$PrincipleCopyWithImpl;
 @useResult
 $Res call({
- String title, String description
+@HiveField(0) String title,@HiveField(1) String description
 });
 
 
@@ -151,7 +151,7 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String title,  String description)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function(@HiveField(0)  String title, @HiveField(1)  String description)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Principle() when $default != null:
 return $default(_that.title,_that.description);case _:
@@ -172,7 +172,7 @@ return $default(_that.title,_that.description);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String title,  String description)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function(@HiveField(0)  String title, @HiveField(1)  String description)  $default,) {final _that = this;
 switch (_that) {
 case _Principle():
 return $default(_that.title,_that.description);}
@@ -189,7 +189,7 @@ return $default(_that.title,_that.description);}
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String title,  String description)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function(@HiveField(0)  String title, @HiveField(1)  String description)?  $default,) {final _that = this;
 switch (_that) {
 case _Principle() when $default != null:
 return $default(_that.title,_that.description);case _:
@@ -204,11 +204,11 @@ return $default(_that.title,_that.description);case _:
 @JsonSerializable()
 
 class _Principle implements Principle {
-  const _Principle({required this.title, required this.description});
+  const _Principle({@HiveField(0) required this.title, @HiveField(1) required this.description});
   factory _Principle.fromJson(Map<String, dynamic> json) => _$PrincipleFromJson(json);
 
-@override final  String title;
-@override final  String description;
+@override@HiveField(0) final  String title;
+@override@HiveField(1) final  String description;
 
 /// Create a copy of Principle
 /// with the given fields replaced by the non-null parameter values.
@@ -243,7 +243,7 @@ abstract mixin class _$PrincipleCopyWith<$Res> implements $PrincipleCopyWith<$Re
   factory _$PrincipleCopyWith(_Principle value, $Res Function(_Principle) _then) = __$PrincipleCopyWithImpl;
 @override @useResult
 $Res call({
- String title, String description
+@HiveField(0) String title,@HiveField(1) String description
 });
 
 

@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:hive_ce_flutter/adapters.dart';
 import 'package:strive_flow/core/navigation/go_router_routes.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
+import 'package:strive_flow/domain/models/principle/principle.dart';
+import 'package:strive_flow/hive_registrar.g.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,8 +17,8 @@ void main() async {
   } else {
     Hive.initFlutter(); // Works for web and desktop
   }
-
-  await Hive.openBox<String>('principles');
+  Hive.registerAdapters();
+  await Hive.openBox<Principle>('principles');
 
   runApp(const MyApp());
 }

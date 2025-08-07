@@ -9,5 +9,13 @@ to run the app on the web with hive being able to maintain data, use:
 
 In another tab, if you are using annotations for code generation while developping, use the build_runner to generate code, in watch mode:
 > flutter pub run build_runner watch --delete-conflicting-outputs
->
-> 
+
+## deleting data in Hive database from browser
+
+when we use hive on the browser, hive will store the data in indexedDB. 
+
+To delete boxes (or even all data):
+- right click => inspect
+- inside inspect, go to application tab
+- find IndexedDB and expand it
+- you will be able to see the box data and delete said data/boxes
