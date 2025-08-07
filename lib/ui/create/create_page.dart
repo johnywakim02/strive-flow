@@ -19,6 +19,10 @@ class CreatePage extends StatelessWidget{
     debugPrint("To Implement");
   }
 
+  void handleToolsOnTapped(){
+    debugPrint("To Implement");
+  }
+
   @override
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
@@ -49,6 +53,12 @@ class CreatePage extends StatelessWidget{
             color: colorScheme.tertiary.withAlpha(splashOpacity), 
             iconData: Icons.check_circle_outline,
             onTap: handleHabitsOnTapped  
+          ),
+          CreateOptionCard(
+            title: "Tools",
+            color: colorScheme.tertiary.withAlpha(splashOpacity), 
+            iconData: Icons.check_circle_outline,
+            onTap: handleToolsOnTapped  
           ),
         ],
       )
