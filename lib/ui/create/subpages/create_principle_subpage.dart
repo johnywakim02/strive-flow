@@ -12,7 +12,8 @@ class CreatePrincipleSubpage extends StatefulWidget {
 }
 
 class _CreatePrincipleSubpageState extends State<CreatePrincipleSubpage> {
-  final TextEditingController _controller = TextEditingController();
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
   late Box<Principle> _principleBox;
 
   @override
@@ -22,12 +23,13 @@ class _CreatePrincipleSubpageState extends State<CreatePrincipleSubpage> {
   }
 
   void _addPrinciple() {
-    final text = _controller.text.trim();
-    final description = "to be added";
+    final text = _titleController.text.trim();
+    final description = _descriptionController.text.trim();
     final Principle principle = Principle(title: text, description: description);
     if (text.isNotEmpty) {
       _principleBox.add(principle);
-      _controller.clear();
+      _titleController.clear();
+      _descriptionController.clear();
       setState(() {});
     }
   }
@@ -56,12 +58,13 @@ class _CreatePrincipleSubpageState extends State<CreatePrincipleSubpage> {
             MyPrinciplesSection(
               principles: principles, 
               onDelete: _deletePrinciple,),
-            CreatePrincipleSection(
-              controller: _controller,
-              onAdd: _addPrinciple,
-            )
           ],
         ),
+      ),
+      floatingActionButton: CreatePrincipleSection(
+        titleController: _titleController,
+        descriptionController: _descriptionController,
+        onAdd: _addPrinciple,
       ),
     );
   }
