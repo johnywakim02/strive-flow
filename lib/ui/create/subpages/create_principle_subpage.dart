@@ -51,15 +51,10 @@ class _CreatePrincipleSubpageState extends State<CreatePrincipleSubpage> {
         elevation: 2,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            MyPrinciplesSection(
-              principles: principles, 
-              onDelete: _deletePrinciple,),
-          ],
-        ),
+        padding: const EdgeInsets.all(8.0),
+        child: MyPrinciplesSection(
+          principles: principles, 
+          onDelete: _deletePrinciple,),
       ),
       floatingActionButton: CreatePrincipleSection(
         titleController: _titleController,
