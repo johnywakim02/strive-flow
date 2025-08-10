@@ -46,7 +46,7 @@ class _CreatePrincipleSubpageState extends State<CreatePrincipleSubpage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Create Principle"),
+        title: const Text("Principles"),
         centerTitle: true,
         elevation: 2,
       ),

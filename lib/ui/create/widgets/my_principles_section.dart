@@ -10,27 +10,15 @@ class MyPrinciplesSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          "My Principles:",
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        const Divider(),
-        Expanded(
-          child: ListView.builder(
-            itemCount: principles.length,
-            itemBuilder: (context, index) {
-              return StyledCard(
-                title: principles[index].title, 
-                content: principles[index].description,
-                onDelete: (){onDelete(index);},
-              );
-            },
-          ),
-        ),
-      ],
+    return ListView.builder(
+      itemCount: principles.length,
+      itemBuilder: (context, index) {
+        return StyledCard(
+          title: principles[index].title, 
+          content: principles[index].description,
+          onDelete: (){onDelete(index);},
+        );
+      },
     );
   }
 }

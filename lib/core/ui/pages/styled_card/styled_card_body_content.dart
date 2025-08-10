@@ -11,15 +11,18 @@ class StyledCardBodyContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MarkdownBody(
-      data: content,
-      styleSheet: MarkdownStyleSheet(
-        p: TextStyle(fontSize: 16),
-        listBullet: TextStyle(fontSize: 16),
-        tableBody: TextStyle(fontSize: 14),
-        tableHead: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-        tableCellsPadding: EdgeInsets.symmetric(horizontal: 2, vertical: 2),
-        tableColumnWidth: const FlexColumnWidth(),
+    return Align(
+      alignment: Alignment.topLeft,
+      child: MarkdownBody(
+        data: content,
+        styleSheet: MarkdownStyleSheet(
+          p: TextStyle(fontSize: 16),
+          listBullet: TextStyle(fontSize: 16),
+          tableBody: TextStyle(fontSize: 14),
+          tableHead: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+          tableCellsPadding: EdgeInsets.symmetric(horizontal: 2, vertical: 2),
+          tableColumnWidth: const FlexColumnWidth(),
+        ),
       ),
     );
   }
