@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:strive_flow/core/ui/pages/styled_card/styled_card.dart';
 import 'package:strive_flow/domain/models/principle/principle.dart';
+import 'package:strive_flow/ui/create/widgets/principle_tile/principle_tile.dart';
 
 class MyPrinciplesSection extends StatelessWidget {
   final List<Principle> principles;
@@ -13,10 +13,9 @@ class MyPrinciplesSection extends StatelessWidget {
     return ListView.builder(
       itemCount: principles.length,
       itemBuilder: (context, index) {
-        return StyledCard(
+        return PrincipleTile(
           title: principles[index].title, 
-          content: principles[index].description,
-          onDelete: (){onDelete(index);},
+          description: principles[index].description,
         );
       },
     );
