@@ -12,6 +12,7 @@ class PrincipleTileTitleText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
+      textAlign: TextAlign.justify,
       style: const TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.bold,

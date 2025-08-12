@@ -12,6 +12,7 @@ class PrincipleTileDescriptionText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       description,
+      textAlign: TextAlign.justify,
       style: const TextStyle(
         fontSize: 14,
         color: Colors.black54,

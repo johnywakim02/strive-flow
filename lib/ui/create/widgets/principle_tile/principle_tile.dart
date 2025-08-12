@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:strive_flow/ui/create/widgets/principle_tile/principle_tile_description_text.dart';
+import 'package:strive_flow/ui/create/widgets/principle_tile/principle_tile_red_disk.dart';
 import 'package:strive_flow/ui/create/widgets/principle_tile/principle_tile_title_text.dart';
 
 class PrincipleTile extends StatelessWidget{
@@ -22,7 +23,14 @@ class PrincipleTile extends StatelessWidget{
           spacing: 4,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            PrincipleTileTitleText(title: title),
+            Row(
+              spacing: 12,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                PrincipleTileRedDisk(),
+                Flexible(child: PrincipleTileTitleText(title: title)),
+              ],
+            ),
             PrincipleTileDescriptionText(description: description)
           ],
         ),
@@ -30,5 +38,4 @@ class PrincipleTile extends StatelessWidget{
     );
   }
 }
-
 
