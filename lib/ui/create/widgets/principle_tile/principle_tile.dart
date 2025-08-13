@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:strive_flow/core/colors/app_colors.dart';
 import 'package:strive_flow/ui/create/widgets/principle_tile/principle_tile_description_text.dart';
 import 'package:strive_flow/ui/create/widgets/principle_tile/principle_tile_red_disk.dart';
 import 'package:strive_flow/ui/create/widgets/principle_tile/principle_tile_red_line.dart';
@@ -20,7 +21,7 @@ class PrincipleTile extends StatelessWidget{
       padding: EdgeInsets.all(12), 
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color(0xFFFFF9E3), Color(0xFFFFF8B6)], 
+          colors: [AppColors.lightButterCream, AppColors.softGoldenPeach], 
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
