@@ -10,7 +10,8 @@ class MyPrinciplesSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return ListView.separated(
+      padding: const EdgeInsets.all(12.0),
       itemCount: principles.length,
       itemBuilder: (context, index) {
         return PrincipleTile(
@@ -18,6 +19,7 @@ class MyPrinciplesSection extends StatelessWidget {
           description: principles[index].description,
         );
       },
+      separatorBuilder: (context, index) => SizedBox(height: 12.0),
     );
   }
 }

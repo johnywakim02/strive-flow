@@ -45,16 +45,15 @@ class _CreatePrincipleSubpageState extends State<CreatePrincipleSubpage> {
     final principles = _principleBox.values.toList();
 
     return Scaffold(
+      backgroundColor: Color(0xFFF7EEDC),
       appBar: AppBar(
+        backgroundColor: const Color(0xFFF7EEDC),
         title: const Text("Principles"),
         centerTitle: true,
-        elevation: 2,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: MyPrinciplesSection(
-          principles: principles, 
-          onDelete: _deletePrinciple,),
+      body: MyPrinciplesSection(
+        principles: principles, 
+        onDelete: _deletePrinciple,
       ),
       floatingActionButton: CreatePrincipleSection(
         titleController: _titleController,

@@ -16,36 +16,48 @@ class PrincipleTile extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: EdgeInsets.all(12), // get some space from the sides
-        child: Align(
-          alignment: Alignment.centerLeft, // to align text to the left in the column (part 1)
-          child: IntrinsicHeight(
-            child: Row(
-              spacing: 12.0,
-              crossAxisAlignment: CrossAxisAlignment.start, // to align text to the left in the column (part 2)
-              children: [
-                Column(
+    return Container(
+      padding: EdgeInsets.all(12), 
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(0xFFFFF9E3), Color(0xFFFFF8B6)], 
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 6,
+            offset: Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Align(
+        alignment: Alignment.centerLeft, // to align text to the left in the column (part 1)
+        child: IntrinsicHeight(
+          child: Row(
+            spacing: 12.0,
+            crossAxisAlignment: CrossAxisAlignment.start, // to align text to the left in the column (part 2)
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start, 
+                children: [
+                  PrincipleTileRedDisk(),
+                  Expanded(child: PrincipleTileRedLine()),
+                ],
+              ),
+              Expanded(
+                child: Column(
+                  spacing:12.0,
                   crossAxisAlignment: CrossAxisAlignment.start, 
                   children: [
-                    PrincipleTileRedDisk(),
-                    Expanded(child: PrincipleTileRedLine()),
-                    
+                    PrincipleTileTitleText(title: title), 
+                    PrincipleTileDescriptionText(description: description), 
                   ],
                 ),
-                Expanded(
-                  child: Column(
-                    spacing:12.0,
-                    crossAxisAlignment: CrossAxisAlignment.start, 
-                    children: [
-                      PrincipleTileTitleText(title: title), 
-                      PrincipleTileDescriptionText(description: description), 
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
