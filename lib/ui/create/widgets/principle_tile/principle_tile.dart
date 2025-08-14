@@ -60,8 +60,14 @@ class _PrincipleTileState extends State<PrincipleTile> {
                   crossAxisAlignment: CrossAxisAlignment.start, 
                   children: [
                     PrincipleTileRedDisk(),
-                    if(_isExpanded)
-                      Expanded(child: PrincipleTileRedLine()),
+                    Expanded(
+                      child: AnimatedSwitcher(
+                        duration: Duration(milliseconds: 1000),
+                        child: _isExpanded
+                            ? PrincipleTileRedLine()
+                            : SizedBox.shrink(),
+                      ),
+                    ),
                   ],
                 ),
                 Expanded(
@@ -70,8 +76,12 @@ class _PrincipleTileState extends State<PrincipleTile> {
                     crossAxisAlignment: CrossAxisAlignment.start, 
                     children: [
                       PrincipleTileTitleText(title: widget.title), 
-                      if(_isExpanded)
-                        PrincipleTileDescriptionText(description: widget.description), 
+                      AnimatedSwitcher(
+                        duration: Duration(milliseconds: 1000),
+                        child: _isExpanded
+                            ? PrincipleTileDescriptionText(description: widget.description,)
+                            : SizedBox.shrink(),
+                      ),
                     ],
                   ),
                 ),
