@@ -22,7 +22,7 @@ class PrincipleTile extends StatefulWidget{
 class _PrincipleTileState extends State<PrincipleTile> {
   final int baseDurationMs = 2;
   late int _animationDuration;
-  final int _animationDurationDisappearingRedLine = 100;
+  final int _animationDurationDisappearingRedLine = 10;
   bool _isExpanded = false;
   bool _showRedLine = false;
   
@@ -80,52 +80,49 @@ class _PrincipleTileState extends State<PrincipleTile> {
             ),
           ],
         ),
-        child: Align(
-          alignment: Alignment.centerLeft, // to align text to the left in the column (part 1)
-          child: IntrinsicHeight(
-            child: Row(
-              spacing: 12.0,
-              crossAxisAlignment: CrossAxisAlignment.start, // to align text to the left in the column (part 2)
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start, 
+        child: IntrinsicHeight(
+          child: Row(
+            spacing: 12.0,
+            crossAxisAlignment: CrossAxisAlignment.center, 
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start, 
+                children: [
+                  PrincipleTileRedDisk(),
+                  Expanded(
+                    child: AnimatedSwitcher(
+                      duration: Duration(milliseconds: _animationDurationDisappearingRedLine),
+                      child: _showRedLine
+                          ? PrincipleTileRedLine(key: ValueKey('line'))
+                          : SizedBox.shrink(key: ValueKey('empty')),
+                    ),
+                  ),
+                ],
+              ),
+              Flexible( //to prevent overflow to the right
+                child: Column(
+                  spacing:12.0,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    PrincipleTileRedDisk(),
-                    Expanded(
-                      child: AnimatedSwitcher(
-                        duration: Duration(milliseconds: _animationDurationDisappearingRedLine),
-                        child: _showRedLine
-                            ? PrincipleTileRedLine(key: ValueKey('line'))
-                            : SizedBox.shrink(key: ValueKey('empty')),
-                      ),
+                    PrincipleTileTitleText(title: widget.title), 
+                    AnimatedSwitcher(
+                      duration: Duration(milliseconds: _animationDuration),
+                      transitionBuilder: (Widget child, Animation<double> animation){
+                        final size = SizeTransition(
+                          sizeFactor: animation,
+                          axisAlignment: -1,
+                          child: child
+                        );
+                        return ClipRect(child: size);
+                      },
+                      child: _isExpanded
+                          ? PrincipleTileDescriptionText(key: ValueKey('desc'), description: widget.description,)
+                          : SizedBox.shrink(key: ValueKey('empty')),
                     ),
                   ],
                 ),
-                Expanded(
-                  child: Column(
-                    spacing:12.0,
-                    crossAxisAlignment: CrossAxisAlignment.start, 
-                    children: [
-                      PrincipleTileTitleText(title: widget.title), 
-                      AnimatedSwitcher(
-                        duration: Duration(milliseconds: _animationDuration),
-                        transitionBuilder: (Widget child, Animation<double> animation){
-                          final size = SizeTransition(
-                            sizeFactor: animation,
-                            axisAlignment: -1,
-                            child: child
-                          );
-                          return ClipRect(child: size);
-                        },
-                        child: _isExpanded
-                            ? PrincipleTileDescriptionText(key: ValueKey('desc'), description: widget.description,)
-                            : SizedBox.shrink(key: ValueKey('empty')),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
