@@ -20,12 +20,43 @@ class PrincipleTile extends StatefulWidget{
 }
 
 class _PrincipleTileState extends State<PrincipleTile> {
+  final int baseDurationMs = 2;
+  late int _animationDuration;
+  final int _animationDurationDisappearingRedLine = 100;
   bool _isExpanded = false;
+  bool _showRedLine = false;
+  
 
   void _toggleExpanded() {
-    setState(() {
-      _isExpanded = !_isExpanded;
-    });
+    // if state was expanded
+    if(_isExpanded){
+      // make state not expanded which entails to stop showing red line after the animation duration
+      setState(() {
+        _isExpanded = false;
+      });
+      // after a delay of the animation duration, if the state is still 'not expanded', change the _showRedLine state variable to false
+      Future.delayed(Duration(milliseconds: _animationDuration), (){
+        if(!_isExpanded){
+          setState(() {
+              _showRedLine = false;
+          });
+        }
+      });
+    }
+    // if state was 'not expanded'
+    else{
+      //make state expanded which entails showing red line
+      setState(() {
+        _isExpanded = true;
+        _showRedLine = true;
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _animationDuration = (widget.description.length * baseDurationMs).clamp(200, 2000);
   }
 
   @override
@@ -62,10 +93,10 @@ class _PrincipleTileState extends State<PrincipleTile> {
                     PrincipleTileRedDisk(),
                     Expanded(
                       child: AnimatedSwitcher(
-                        duration: Duration(milliseconds: 1000),
-                        child: _isExpanded
-                            ? PrincipleTileRedLine()
-                            : SizedBox.shrink(),
+                        duration: Duration(milliseconds: _animationDurationDisappearingRedLine),
+                        child: _showRedLine
+                            ? PrincipleTileRedLine(key: ValueKey('line'))
+                            : SizedBox.shrink(key: ValueKey('empty')),
                       ),
                     ),
                   ],
@@ -77,10 +108,18 @@ class _PrincipleTileState extends State<PrincipleTile> {
                     children: [
                       PrincipleTileTitleText(title: widget.title), 
                       AnimatedSwitcher(
-                        duration: Duration(milliseconds: 1000),
+                        duration: Duration(milliseconds: _animationDuration),
+                        transitionBuilder: (Widget child, Animation<double> animation){
+                          final size = SizeTransition(
+                            sizeFactor: animation,
+                            axisAlignment: -1,
+                            child: child
+                          );
+                          return ClipRect(child: size);
+                        },
                         child: _isExpanded
-                            ? PrincipleTileDescriptionText(description: widget.description,)
-                            : SizedBox.shrink(),
+                            ? PrincipleTileDescriptionText(key: ValueKey('desc'), description: widget.description,)
+                            : SizedBox.shrink(key: ValueKey('empty')),
                       ),
                     ],
                   ),
