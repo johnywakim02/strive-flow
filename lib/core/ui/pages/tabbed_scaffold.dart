@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:strive_flow/core/colors/app_theme_extension.dart';
 import 'package:strive_flow/core/navigation/go_router_paths.dart';
 
 class TabbedScaffold extends StatelessWidget{
@@ -22,10 +23,13 @@ class TabbedScaffold extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-
+    final AppThemeExtension colorScheme = Theme.of(context).extension<AppThemeExtension>()!;
     return Scaffold(
       body: child,
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: colorScheme.tabBarBackgroundColor,
+        selectedItemColor: colorScheme.tabBarItemSelectedColor,
+        unselectedItemColor: colorScheme.tabBarItemUnselectedColor,
         currentIndex: selectedIndex,
         onTap: (index){onTapHandler(context ,index);},
         type: BottomNavigationBarType.fixed,
