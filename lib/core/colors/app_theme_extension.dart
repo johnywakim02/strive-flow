@@ -10,6 +10,7 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
   final Color tabBarBackgroundColor;
   final Color tabBarItemSelectedColor;
   final Color tabBarItemUnselectedColor;
+  final Color appBarBackgroundColor;
 
   AppThemeExtension({
     required this.backgroundColor,
@@ -17,7 +18,8 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
     required this.tileGradientSecondColor,
     required this.tabBarBackgroundColor,
     required this.tabBarItemSelectedColor,
-    required this.tabBarItemUnselectedColor
+    required this.tabBarItemUnselectedColor,
+    required this.appBarBackgroundColor,
   });
 
   @override
@@ -27,7 +29,8 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
     Color? tileGradientSecondColor,
     Color? tabBarBackgroundColor,
     Color? tabBarItemSelectedColor,
-    Color? tabBarItemUnselectedColor
+    Color? tabBarItemUnselectedColor,
+    Color? appBarBackgroundColor,
   }){
     return AppThemeExtension(
       backgroundColor: backgroundColor ?? this.backgroundColor, 
@@ -36,6 +39,7 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
       tabBarBackgroundColor: tabBarBackgroundColor ?? this.tabBarBackgroundColor,
       tabBarItemSelectedColor: tabBarItemSelectedColor ?? this.tabBarItemSelectedColor,
       tabBarItemUnselectedColor: tabBarItemUnselectedColor ?? this.tabBarItemUnselectedColor,
+      appBarBackgroundColor: appBarBackgroundColor ?? this.appBarBackgroundColor,
     );
   }
 
@@ -51,6 +55,7 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
       tabBarBackgroundColor: Color.lerp(tabBarBackgroundColor, other.tabBarBackgroundColor, t)!,
       tabBarItemSelectedColor: Color.lerp(tabBarItemSelectedColor, other.tabBarItemSelectedColor, t)!,
       tabBarItemUnselectedColor: Color.lerp(tabBarItemUnselectedColor, other.tabBarItemUnselectedColor, t)!,
+      appBarBackgroundColor: Color.lerp(appBarBackgroundColor, other.appBarBackgroundColor, t)!,
     );
   }
 }
@@ -61,5 +66,6 @@ final AppThemeExtension appThemeExtension = AppThemeExtension(
   tileGradientSecondColor: AppColors.softGoldenPeach,
   tabBarBackgroundColor: AppColors.dustyRose,
   tabBarItemSelectedColor: AppColors.warmRust,
-  tabBarItemUnselectedColor: AppColors.paleRose
+  tabBarItemUnselectedColor: AppColors.paleRose,
+  appBarBackgroundColor: AppColors.dustyRose,
 );

@@ -33,7 +33,7 @@ class CreatePage extends StatelessWidget{
       appBar: AppBar(
         title: const Text("Create"),
         centerTitle: true,
-        backgroundColor: colorScheme.backgroundColor,
+        backgroundColor: colorScheme.appBarBackgroundColor,
       ),
       body: ListView(
         children: [
