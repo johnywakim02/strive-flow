@@ -5,13 +5,11 @@ class CreateOptionCard extends StatelessWidget {
   const CreateOptionCard({
     super.key,
     required this.title,
-    required this.color,
     required this.iconData,
     required this.onTap
   });
 
   final String title;
-  final Color color;
   final IconData iconData;
   final void Function()? onTap;
 
@@ -23,7 +21,6 @@ class CreateOptionCard extends StatelessWidget {
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: InkWell(
-        splashColor: color,
         onTap: onTap,
         child: ListTile(
           contentPadding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),

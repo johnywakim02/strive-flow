@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:strive_flow/core/colors/app_theme_extension.dart';
 import 'package:strive_flow/core/navigation/go_router_paths.dart';
 import 'package:strive_flow/ui/create/widgets/create_option_card.dart';
 
@@ -25,38 +26,34 @@ class CreatePage extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final int splashOpacity = 200;
+    final AppThemeExtension colorScheme = Theme.of(context).extension<AppThemeExtension>()!;
     
     return Scaffold(
+      backgroundColor: colorScheme.backgroundColor,
       appBar: AppBar(
         title: const Text("Create"),
         centerTitle: true,
-        elevation: 2,
+        backgroundColor: colorScheme.backgroundColor,
       ),
       body: ListView(
         children: [
           CreateOptionCard(
-            title: "Principles",
-            color: colorScheme.primary.withAlpha(splashOpacity), 
+            title: "Principles", 
             iconData: Icons.lightbulb_outline,
             onTap: () => handlePrinciplesOnTapped(context)
           ),
           CreateOptionCard(
-            title: "Rules",
-            color: colorScheme.secondary.withAlpha(splashOpacity), 
+            title: "Rules", 
             iconData: Icons.menu_book_outlined,
             onTap: handleRulesOnTapped 
           ),
           CreateOptionCard(
             title: "Habits",
-            color: colorScheme.tertiary.withAlpha(splashOpacity), 
             iconData: Icons.check_circle_outline,
             onTap: handleHabitsOnTapped  
           ),
           CreateOptionCard(
             title: "Tools",
-            color: colorScheme.tertiary.withAlpha(splashOpacity), 
             iconData: Icons.check_circle_outline,
             onTap: handleToolsOnTapped  
           ),

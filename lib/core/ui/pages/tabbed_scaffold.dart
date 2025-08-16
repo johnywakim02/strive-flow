@@ -22,6 +22,7 @@ class TabbedScaffold extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: child,
       bottomNavigationBar: BottomNavigationBar(

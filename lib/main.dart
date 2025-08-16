@@ -3,6 +3,7 @@ import 'dart:io' as io;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_ce_flutter/adapters.dart';
+import 'package:strive_flow/core/colors/app_theme_extension.dart';
 import 'package:strive_flow/core/navigation/go_router_routes.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:strive_flow/domain/models/principle/principle.dart';
@@ -30,9 +31,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      theme: ThemeData.light().copyWith(
+        extensions: [
+          appThemeExtension,
+        ]
       ),
+      themeMode: ThemeMode.light,
       routerConfig: router,
     );
   }
