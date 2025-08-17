@@ -13,6 +13,11 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
   final Color appBarBackgroundColor;
   final Color fabBackgroundColor;
   final Color fabForegroundColor;
+  final Color textFieldBackgroundColor;
+  final Color textFieldEnabledBorderColor;
+  final Color textFieldFocusedBorderColor;
+  final Color textFieldLabelColor;
+  final Color textFieldHintColor;
 
   AppThemeExtension({
     required this.backgroundColor,
@@ -24,6 +29,11 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
     required this.appBarBackgroundColor,
     required this.fabBackgroundColor,
     required this.fabForegroundColor,
+    required this.textFieldBackgroundColor,
+    required this.textFieldEnabledBorderColor,
+    required this.textFieldFocusedBorderColor,
+    required this.textFieldLabelColor,
+    required this.textFieldHintColor,
   });
 
   @override
@@ -37,6 +47,11 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
     Color? appBarBackgroundColor,
     Color? fabBackgroundColor,
     Color? fabForegroundColor,
+    Color? textFieldBackgroundColor,
+    Color? textFieldEnabledBorderColor,
+    Color? textFieldFocusedBorderColor,
+    Color? textFieldLabelColor,
+    Color? textFieldHintColor,
   }){
     return AppThemeExtension(
       backgroundColor: backgroundColor ?? this.backgroundColor, 
@@ -48,6 +63,11 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
       appBarBackgroundColor: appBarBackgroundColor ?? this.appBarBackgroundColor,
       fabBackgroundColor: fabBackgroundColor ?? this.fabBackgroundColor,
       fabForegroundColor: fabForegroundColor ?? this.fabForegroundColor,
+      textFieldBackgroundColor: textFieldBackgroundColor ?? this.textFieldBackgroundColor,
+      textFieldEnabledBorderColor: textFieldEnabledBorderColor ?? this.textFieldEnabledBorderColor,
+      textFieldFocusedBorderColor: textFieldFocusedBorderColor ?? this.textFieldFocusedBorderColor,
+      textFieldLabelColor: textFieldLabelColor ?? this.textFieldLabelColor,
+      textFieldHintColor: textFieldHintColor ?? this.textFieldHintColor,
     );
   }
 
@@ -66,6 +86,11 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
       appBarBackgroundColor: Color.lerp(appBarBackgroundColor, other.appBarBackgroundColor, t)!,
       fabBackgroundColor: Color.lerp(fabBackgroundColor, other.fabBackgroundColor, t)!,
       fabForegroundColor: Color.lerp(fabForegroundColor, other.fabForegroundColor, t)!,
+      textFieldBackgroundColor: Color.lerp(textFieldBackgroundColor, other.textFieldBackgroundColor, t)!,
+      textFieldEnabledBorderColor: Color.lerp(textFieldEnabledBorderColor, other.textFieldEnabledBorderColor, t)!,
+      textFieldFocusedBorderColor: Color.lerp(textFieldFocusedBorderColor, other.textFieldFocusedBorderColor, t)!,
+      textFieldLabelColor: Color.lerp(textFieldLabelColor, other.textFieldLabelColor, t)!,
+      textFieldHintColor: Color.lerp(textFieldHintColor, other.textFieldHintColor, t)!,
     );
   }
 }
@@ -80,4 +105,9 @@ final AppThemeExtension appThemeExtension = AppThemeExtension(
   appBarBackgroundColor: AppColors.dustyRose,
   fabBackgroundColor: AppColors.warmRust,
   fabForegroundColor: AppColors.paleRose,
+  textFieldBackgroundColor: Colors.white30,
+  textFieldEnabledBorderColor: AppColors.paleRose,
+  textFieldFocusedBorderColor: AppColors.dustyRose,
+  textFieldLabelColor: AppColors.warmRust,
+  textFieldHintColor: AppColors.warmRust,
 );

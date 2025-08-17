@@ -30,10 +30,12 @@ class CreatePrincipleSection extends StatelessWidget {
   }
 
   void _showAddPrincipleBottomSheet(BuildContext context){
+    final AppThemeExtension colorScheme = Theme.of(context).extension<AppThemeExtension>()!;
+
     showModalBottomSheet( //built in method
       context: context, 
       isScrollControlled: true, // because the bottom sheet has textfields which are scrollable children
-      backgroundColor: Colors.white,
+      backgroundColor: colorScheme.backgroundColor,
       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(16))), // only round the top corners
       builder: (context) {
         final screenHeight = MediaQuery.of(context).size.height;
@@ -48,8 +50,8 @@ class CreatePrincipleSection extends StatelessWidget {
               spacing: 16,
               children: [
                 _buildNewPrincipleText(),
-                _buildTitleTextField(),
-                _buildDescriptionTextField(),
+                _buildTitleTextField(colorScheme),
+                _buildDescriptionTextField(colorScheme),
                 _buildActionButtonsRow(context)
               ],
             )
@@ -66,29 +68,53 @@ class CreatePrincipleSection extends StatelessWidget {
     );
   }
 
-  Widget _buildTitleTextField(){
+  Widget _buildTitleTextField(AppThemeExtension colorScheme){
     return TextField(
       controller: titleController,
       maxLines: 2, // before scrolling
-      decoration: const InputDecoration(
+      decoration: InputDecoration(
         labelText: "Title",
         hintText: "Enter principle title",
-        border: OutlineInputBorder(),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0),),
         alignLabelWithHint: true,
+        filled: true,
+        fillColor: colorScheme.textFieldBackgroundColor,
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            borderSide: BorderSide(color: colorScheme.textFieldEnabledBorderColor),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            borderSide: BorderSide(color: colorScheme.textFieldFocusedBorderColor, width: 2),
+          ),
+          labelStyle: TextStyle(color: colorScheme.textFieldLabelColor),
+          hintStyle: TextStyle(color: Colors.grey[600]),
       ),
     );
   }
 
-  Widget _buildDescriptionTextField(){
+  Widget _buildDescriptionTextField(AppThemeExtension colorScheme){
     return Expanded(
       child: TextField(
         controller: descriptionController,
         maxLines: 10, // before scrolling
-        decoration: const InputDecoration(
+        decoration: InputDecoration(
           labelText: "Description",
           hintText: "Enter principle description",
-          border: OutlineInputBorder(),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.0),),
           alignLabelWithHint: true,
+          filled: true,
+          fillColor: colorScheme.textFieldBackgroundColor,
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            borderSide: BorderSide(color: colorScheme.textFieldEnabledBorderColor),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8.0),
+            borderSide: BorderSide(color: colorScheme.textFieldFocusedBorderColor, width: 2),
+          ),
+          labelStyle: TextStyle(color: colorScheme.textFieldLabelColor),
+          hintStyle: TextStyle(color: Colors.grey[600]),
         ),
       ),
     );
