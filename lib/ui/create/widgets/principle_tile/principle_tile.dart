@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:strive_flow/core/colors/app_colors.dart';
+import 'package:strive_flow/core/colors/app_theme_extension.dart';
 import 'package:strive_flow/ui/create/widgets/principle_tile/principle_tile_description_text.dart';
 import 'package:strive_flow/ui/create/widgets/principle_tile/principle_tile_red_disk.dart';
 import 'package:strive_flow/ui/create/widgets/principle_tile/principle_tile_red_line.dart';
@@ -61,13 +61,15 @@ class _PrincipleTileState extends State<PrincipleTile> {
 
   @override
   Widget build(BuildContext context) {
+    final AppThemeExtension colorScheme = Theme.of(context).extension<AppThemeExtension>()!;
+
     return GestureDetector(
       onTap: _toggleExpanded,
       child: Container(
         padding: EdgeInsets.all(12), 
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [AppColors.lightButterCream, AppColors.softGoldenPeach], 
+            colors: [colorScheme.tileGradientFirstColor, colorScheme.tileGradientSecondColor], 
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),

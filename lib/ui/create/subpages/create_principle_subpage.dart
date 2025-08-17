@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hive_ce/hive.dart';
-import 'package:strive_flow/core/colors/app_colors.dart';
 import 'package:strive_flow/core/colors/app_theme_extension.dart';
 import 'package:strive_flow/domain/models/principle/principle.dart';
 import 'package:strive_flow/ui/create/widgets/create_principle_section.dart';
@@ -48,7 +47,7 @@ class _CreatePrincipleSubpageState extends State<CreatePrincipleSubpage> {
     final AppThemeExtension colorScheme = Theme.of(context).extension<AppThemeExtension>()!;
 
     return Scaffold(
-      backgroundColor: AppColors.linen,
+      backgroundColor: colorScheme.backgroundColor,
       appBar: AppBar(
         backgroundColor: colorScheme.appBarBackgroundColor,
         title: const Text("Principles"),

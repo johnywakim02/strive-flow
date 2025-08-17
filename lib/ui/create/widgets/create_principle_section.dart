@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:strive_flow/core/colors/app_theme_extension.dart';
 
 class CreatePrincipleSection extends StatelessWidget {
   final TextEditingController titleController;
@@ -14,9 +15,13 @@ class CreatePrincipleSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppThemeExtension colorScheme = Theme.of(context).extension<AppThemeExtension>()!;
+
     return Align(
       alignment: Alignment.bottomRight,
       child: FloatingActionButton.extended(
+        backgroundColor: colorScheme.fabBackgroundColor,
+        foregroundColor: colorScheme.fabForegroundColor,
         icon: const Icon(Icons.add),
         label: const Text("Add Principle"),
         onPressed: () => _showAddPrincipleBottomSheet(context),

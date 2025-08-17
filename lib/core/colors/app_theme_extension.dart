@@ -11,6 +11,8 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
   final Color tabBarItemSelectedColor;
   final Color tabBarItemUnselectedColor;
   final Color appBarBackgroundColor;
+  final Color fabBackgroundColor;
+  final Color fabForegroundColor;
 
   AppThemeExtension({
     required this.backgroundColor,
@@ -20,6 +22,8 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
     required this.tabBarItemSelectedColor,
     required this.tabBarItemUnselectedColor,
     required this.appBarBackgroundColor,
+    required this.fabBackgroundColor,
+    required this.fabForegroundColor,
   });
 
   @override
@@ -31,6 +35,8 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
     Color? tabBarItemSelectedColor,
     Color? tabBarItemUnselectedColor,
     Color? appBarBackgroundColor,
+    Color? fabBackgroundColor,
+    Color? fabForegroundColor,
   }){
     return AppThemeExtension(
       backgroundColor: backgroundColor ?? this.backgroundColor, 
@@ -40,6 +46,8 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
       tabBarItemSelectedColor: tabBarItemSelectedColor ?? this.tabBarItemSelectedColor,
       tabBarItemUnselectedColor: tabBarItemUnselectedColor ?? this.tabBarItemUnselectedColor,
       appBarBackgroundColor: appBarBackgroundColor ?? this.appBarBackgroundColor,
+      fabBackgroundColor: fabBackgroundColor ?? this.fabBackgroundColor,
+      fabForegroundColor: fabForegroundColor ?? this.fabForegroundColor,
     );
   }
 
@@ -56,6 +64,8 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
       tabBarItemSelectedColor: Color.lerp(tabBarItemSelectedColor, other.tabBarItemSelectedColor, t)!,
       tabBarItemUnselectedColor: Color.lerp(tabBarItemUnselectedColor, other.tabBarItemUnselectedColor, t)!,
       appBarBackgroundColor: Color.lerp(appBarBackgroundColor, other.appBarBackgroundColor, t)!,
+      fabBackgroundColor: Color.lerp(fabBackgroundColor, other.fabBackgroundColor, t)!,
+      fabForegroundColor: Color.lerp(fabForegroundColor, other.fabForegroundColor, t)!,
     );
   }
 }
@@ -68,4 +78,6 @@ final AppThemeExtension appThemeExtension = AppThemeExtension(
   tabBarItemSelectedColor: AppColors.warmRust,
   tabBarItemUnselectedColor: AppColors.paleRose,
   appBarBackgroundColor: AppColors.dustyRose,
+  fabBackgroundColor: AppColors.warmRust,
+  fabForegroundColor: AppColors.paleRose,
 );
