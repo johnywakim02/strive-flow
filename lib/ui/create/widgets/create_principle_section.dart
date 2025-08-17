@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:strive_flow/core/colors/app_theme_extension.dart';
+import 'package:strive_flow/core/colors/app_colors_theme_extension.dart';
 
 class CreatePrincipleSection extends StatelessWidget {
   final TextEditingController titleController;
@@ -15,13 +15,13 @@ class CreatePrincipleSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AppThemeExtension colorScheme = Theme.of(context).extension<AppThemeExtension>()!;
+    final AppColorsThemeExtension colorScheme = Theme.of(context).extension<AppColorsThemeExtension>()!;
 
     return Align(
       alignment: Alignment.bottomRight,
       child: FloatingActionButton.extended(
-        backgroundColor: colorScheme.fabBackgroundColor,
-        foregroundColor: colorScheme.fabForegroundColor,
+        backgroundColor: colorScheme.primaryButtonBackgroundColor,
+        foregroundColor: colorScheme.primaryButtonForegroundColor,
         icon: const Icon(Icons.add),
         label: const Text("Add Principle"),
         onPressed: () => _showAddPrincipleBottomSheet(context),
@@ -30,7 +30,7 @@ class CreatePrincipleSection extends StatelessWidget {
   }
 
   void _showAddPrincipleBottomSheet(BuildContext context){
-    final AppThemeExtension colorScheme = Theme.of(context).extension<AppThemeExtension>()!;
+    final AppColorsThemeExtension colorScheme = Theme.of(context).extension<AppColorsThemeExtension>()!;
 
     showModalBottomSheet( //built in method
       context: context, 
@@ -68,7 +68,7 @@ class CreatePrincipleSection extends StatelessWidget {
     );
   }
 
-  Widget _buildTitleTextField(AppThemeExtension colorScheme){
+  Widget _buildTitleTextField(AppColorsThemeExtension colorScheme){
     return TextField(
       controller: titleController,
       maxLines: 2, // before scrolling
@@ -93,7 +93,7 @@ class CreatePrincipleSection extends StatelessWidget {
     );
   }
 
-  Widget _buildDescriptionTextField(AppThemeExtension colorScheme){
+  Widget _buildDescriptionTextField(AppColorsThemeExtension colorScheme){
     return Expanded(
       child: TextField(
         controller: descriptionController,
@@ -121,12 +121,17 @@ class CreatePrincipleSection extends StatelessWidget {
   }
 
   Widget _buildActionButtonsRow(BuildContext context){
+    final AppColorsThemeExtension colorScheme = Theme.of(context).extension<AppColorsThemeExtension>()!;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       spacing: 8,
       children: [
         // cancel button
         TextButton(
+          style: TextButton.styleFrom(
+            foregroundColor: colorScheme.tertiaryButtonForegroundColor, // text color
+          ),
           onPressed: () {
             titleController.text = "";
             descriptionController.text = "";
@@ -136,6 +141,10 @@ class CreatePrincipleSection extends StatelessWidget {
         ),
         // save button
         ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: colorScheme.primaryButtonBackgroundColor, // background
+            foregroundColor: colorScheme.primaryButtonForegroundColor, // text color
+          ),
           onPressed: () {
             final title = titleController.text.trim();
             final description = descriptionController.text.trim();

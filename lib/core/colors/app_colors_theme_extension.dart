@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:strive_flow/core/colors/app_colors.dart';
 
 
-class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
+class AppColorsThemeExtension extends ThemeExtension<AppColorsThemeExtension> {
 
   final Color backgroundColor;
   final Color tileGradientFirstColor;
@@ -11,15 +11,16 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
   final Color tabBarItemSelectedColor;
   final Color tabBarItemUnselectedColor;
   final Color appBarBackgroundColor;
-  final Color fabBackgroundColor;
-  final Color fabForegroundColor;
+  final Color primaryButtonBackgroundColor;
+  final Color primaryButtonForegroundColor;
+  final Color tertiaryButtonForegroundColor;
   final Color textFieldBackgroundColor;
   final Color textFieldEnabledBorderColor;
   final Color textFieldFocusedBorderColor;
   final Color textFieldLabelColor;
   final Color textFieldHintColor;
 
-  AppThemeExtension({
+  AppColorsThemeExtension({
     required this.backgroundColor,
     required this.tileGradientFirstColor,
     required this.tileGradientSecondColor,
@@ -27,8 +28,9 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
     required this.tabBarItemSelectedColor,
     required this.tabBarItemUnselectedColor,
     required this.appBarBackgroundColor,
-    required this.fabBackgroundColor,
-    required this.fabForegroundColor,
+    required this.primaryButtonBackgroundColor,
+    required this.primaryButtonForegroundColor,
+    required this.tertiaryButtonForegroundColor,
     required this.textFieldBackgroundColor,
     required this.textFieldEnabledBorderColor,
     required this.textFieldFocusedBorderColor,
@@ -37,7 +39,7 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
   });
 
   @override
-  ThemeExtension<AppThemeExtension> copyWith({
+  ThemeExtension<AppColorsThemeExtension> copyWith({
     Color? backgroundColor,
     Color? tileGradientFirstColor,
     Color? tileGradientSecondColor,
@@ -45,15 +47,16 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
     Color? tabBarItemSelectedColor,
     Color? tabBarItemUnselectedColor,
     Color? appBarBackgroundColor,
-    Color? fabBackgroundColor,
-    Color? fabForegroundColor,
+    Color? primaryButtonBackgroundColor,
+    Color? primaryButtonForegroundColor,
+    Color? tertiaryButtonForegroundColor,
     Color? textFieldBackgroundColor,
     Color? textFieldEnabledBorderColor,
     Color? textFieldFocusedBorderColor,
     Color? textFieldLabelColor,
     Color? textFieldHintColor,
   }){
-    return AppThemeExtension(
+    return AppColorsThemeExtension(
       backgroundColor: backgroundColor ?? this.backgroundColor, 
       tileGradientFirstColor: tileGradientFirstColor ?? this.tileGradientFirstColor,
       tileGradientSecondColor: tileGradientSecondColor ?? this.tileGradientSecondColor,
@@ -61,8 +64,9 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
       tabBarItemSelectedColor: tabBarItemSelectedColor ?? this.tabBarItemSelectedColor,
       tabBarItemUnselectedColor: tabBarItemUnselectedColor ?? this.tabBarItemUnselectedColor,
       appBarBackgroundColor: appBarBackgroundColor ?? this.appBarBackgroundColor,
-      fabBackgroundColor: fabBackgroundColor ?? this.fabBackgroundColor,
-      fabForegroundColor: fabForegroundColor ?? this.fabForegroundColor,
+      primaryButtonBackgroundColor: primaryButtonBackgroundColor ?? this.primaryButtonBackgroundColor,
+      primaryButtonForegroundColor: primaryButtonForegroundColor ?? this.primaryButtonForegroundColor,
+      tertiaryButtonForegroundColor: tertiaryButtonForegroundColor ?? this.tertiaryButtonForegroundColor,
       textFieldBackgroundColor: textFieldBackgroundColor ?? this.textFieldBackgroundColor,
       textFieldEnabledBorderColor: textFieldEnabledBorderColor ?? this.textFieldEnabledBorderColor,
       textFieldFocusedBorderColor: textFieldFocusedBorderColor ?? this.textFieldFocusedBorderColor,
@@ -72,11 +76,11 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
   }
 
   @override
-  ThemeExtension<AppThemeExtension> lerp(covariant ThemeExtension<AppThemeExtension>? other, double t) {
-    if (other is! AppThemeExtension){
+  ThemeExtension<AppColorsThemeExtension> lerp(covariant ThemeExtension<AppColorsThemeExtension>? other, double t) {
+    if (other is! AppColorsThemeExtension){
       return this;
     }
-    return AppThemeExtension(
+    return AppColorsThemeExtension(
       backgroundColor: Color.lerp(backgroundColor, other.backgroundColor, t)!, 
       tileGradientFirstColor: Color.lerp(tileGradientFirstColor, other.tileGradientFirstColor, t)!,
       tileGradientSecondColor: Color.lerp(tileGradientSecondColor, other.tileGradientSecondColor, t)!,
@@ -84,8 +88,9 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
       tabBarItemSelectedColor: Color.lerp(tabBarItemSelectedColor, other.tabBarItemSelectedColor, t)!,
       tabBarItemUnselectedColor: Color.lerp(tabBarItemUnselectedColor, other.tabBarItemUnselectedColor, t)!,
       appBarBackgroundColor: Color.lerp(appBarBackgroundColor, other.appBarBackgroundColor, t)!,
-      fabBackgroundColor: Color.lerp(fabBackgroundColor, other.fabBackgroundColor, t)!,
-      fabForegroundColor: Color.lerp(fabForegroundColor, other.fabForegroundColor, t)!,
+      primaryButtonBackgroundColor: Color.lerp(primaryButtonBackgroundColor, other.primaryButtonBackgroundColor, t)!,
+      primaryButtonForegroundColor: Color.lerp(primaryButtonForegroundColor, other.primaryButtonForegroundColor, t)!,
+      tertiaryButtonForegroundColor: Color.lerp(tertiaryButtonForegroundColor, other.tertiaryButtonForegroundColor, t)!,
       textFieldBackgroundColor: Color.lerp(textFieldBackgroundColor, other.textFieldBackgroundColor, t)!,
       textFieldEnabledBorderColor: Color.lerp(textFieldEnabledBorderColor, other.textFieldEnabledBorderColor, t)!,
       textFieldFocusedBorderColor: Color.lerp(textFieldFocusedBorderColor, other.textFieldFocusedBorderColor, t)!,
@@ -95,7 +100,7 @@ class AppThemeExtension extends ThemeExtension<AppThemeExtension> {
   }
 }
 
-final AppThemeExtension appThemeExtension = AppThemeExtension(
+final AppColorsThemeExtension appColorsThemeExtension = AppColorsThemeExtension(
   backgroundColor: AppColors.linen, 
   tileGradientFirstColor: AppColors.lightButterCream,
   tileGradientSecondColor: AppColors.softGoldenPeach,
@@ -103,8 +108,9 @@ final AppThemeExtension appThemeExtension = AppThemeExtension(
   tabBarItemSelectedColor: AppColors.warmRust,
   tabBarItemUnselectedColor: AppColors.paleRose,
   appBarBackgroundColor: AppColors.dustyRose,
-  fabBackgroundColor: AppColors.warmRust,
-  fabForegroundColor: AppColors.paleRose,
+  primaryButtonBackgroundColor: AppColors.warmRust,
+  primaryButtonForegroundColor: AppColors.paleRose,
+  tertiaryButtonForegroundColor: AppColors.warmRust,
   textFieldBackgroundColor: Colors.white30,
   textFieldEnabledBorderColor: AppColors.paleRose,
   textFieldFocusedBorderColor: AppColors.dustyRose,

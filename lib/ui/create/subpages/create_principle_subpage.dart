@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_ce/hive.dart';
-import 'package:strive_flow/core/colors/app_theme_extension.dart';
+import 'package:strive_flow/core/colors/app_colors_theme_extension.dart';
 import 'package:strive_flow/domain/models/principle/principle.dart';
 import 'package:strive_flow/ui/create/widgets/create_principle_section.dart';
 import 'package:strive_flow/ui/create/widgets/my_principles_section.dart';
@@ -44,7 +44,7 @@ class _CreatePrincipleSubpageState extends State<CreatePrincipleSubpage> {
   @override
   Widget build(BuildContext context) {
     final principles = _principleBox.values.toList();
-    final AppThemeExtension colorScheme = Theme.of(context).extension<AppThemeExtension>()!;
+    final AppColorsThemeExtension colorScheme = Theme.of(context).extension<AppColorsThemeExtension>()!;
 
     return Scaffold(
       backgroundColor: colorScheme.backgroundColor,

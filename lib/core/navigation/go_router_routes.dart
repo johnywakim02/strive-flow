@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:strive_flow/core/colors/app_theme_extension.dart';
+import 'package:strive_flow/core/colors/app_colors_theme_extension.dart';
 import 'package:strive_flow/core/navigation/go_router_paths.dart';
 import 'package:strive_flow/core/ui/pages/tabbed_scaffold.dart';
 import 'package:strive_flow/ui/create/create_page.dart';
@@ -29,7 +29,7 @@ GoRouter router = GoRouter(
             GoRoute(
               path: GoRouterPaths.tabRoutes[i],
               builder: (context, state) {
-                final AppThemeExtension colorScheme = Theme.of(context).extension<AppThemeExtension>()!;
+                final AppColorsThemeExtension colorScheme = Theme.of(context).extension<AppColorsThemeExtension>()!;
                 
                 return Scaffold(
                   backgroundColor: colorScheme.backgroundColor,

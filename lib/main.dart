@@ -3,7 +3,7 @@ import 'dart:io' as io;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_ce_flutter/adapters.dart';
-import 'package:strive_flow/core/colors/app_theme_extension.dart';
+import 'package:strive_flow/core/colors/app_colors_theme_extension.dart';
 import 'package:strive_flow/core/navigation/go_router_routes.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:strive_flow/domain/models/principle/principle.dart';
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData.light().copyWith(
         extensions: [
-          appThemeExtension,
+          appColorsThemeExtension,
         ]
       ),
       themeMode: ThemeMode.light,
