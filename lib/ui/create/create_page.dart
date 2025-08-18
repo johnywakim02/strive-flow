@@ -35,29 +35,32 @@ class CreatePage extends StatelessWidget{
         centerTitle: true,
         backgroundColor: colorScheme.appBarBackgroundColor,
       ),
-      body: ListView(
-        children: [
-          CreateOptionCard(
-            title: "Principles", 
-            iconData: Icons.lightbulb_outline,
-            onTap: () => handlePrinciplesOnTapped(context)
-          ),
-          CreateOptionCard(
-            title: "Rules", 
-            iconData: Icons.menu_book_outlined,
-            onTap: handleRulesOnTapped 
-          ),
-          CreateOptionCard(
-            title: "Habits",
-            iconData: Icons.check_circle_outline,
-            onTap: handleHabitsOnTapped  
-          ),
-          CreateOptionCard(
-            title: "Tools",
-            iconData: Icons.check_circle_outline,
-            onTap: handleToolsOnTapped  
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: ListView(
+          children: [
+            CreateOptionCard(
+              title: "Principles", 
+              iconData: Icons.lightbulb_outline,
+              onTap: () => handlePrinciplesOnTapped(context)
+            ),
+            CreateOptionCard(
+              title: "Rules", 
+              iconData: Icons.menu_book_outlined,
+              onTap: handleRulesOnTapped 
+            ),
+            CreateOptionCard(
+              title: "Habits",
+              iconData: Icons.check_circle_outline,
+              onTap: handleHabitsOnTapped  
+            ),
+            CreateOptionCard(
+              title: "Tools",
+              iconData: Icons.handyman_outlined,
+              onTap: handleToolsOnTapped  
+            ),
+          ],
+        ),
       )
     );
   }
