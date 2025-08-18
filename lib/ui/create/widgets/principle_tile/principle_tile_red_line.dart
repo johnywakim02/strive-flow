@@ -8,7 +8,7 @@ class PrincipleTileRedLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Transform.translate(
-      offset: Offset(5, 0),
+      offset: Offset(9, 0),
       child: Container(
         width: 3,
         color: Colors.red,

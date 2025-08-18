@@ -8,11 +8,13 @@ import 'package:strive_flow/ui/create/widgets/principle_tile/principle_tile_titl
 class PrincipleTile extends StatefulWidget{
   final String title;
   final String description;
+  final int number;
 
   const PrincipleTile({
     super.key,
     required this.title,
-    required this.description
+    required this.description,
+    required this.number
   });
 
   @override
@@ -90,7 +92,7 @@ class _PrincipleTileState extends State<PrincipleTile> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start, 
                 children: [
-                  PrincipleTileRedDisk(),
+                  PrincipleTileRedDisk(number: widget.number),
                   Expanded(
                     child: AnimatedSwitcher(
                       duration: Duration(milliseconds: _animationDurationDisappearingRedLine),

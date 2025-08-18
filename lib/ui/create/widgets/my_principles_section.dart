@@ -38,6 +38,7 @@ class MyPrinciplesSection extends StatelessWidget {
           child: PrincipleTile(
             title: principles[index].title, 
             description: principles[index].description,
+            number: index + 1
           ),
         );
       },
