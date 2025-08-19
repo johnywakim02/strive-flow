@@ -40,22 +40,29 @@ class CreatePrincipleSection extends StatelessWidget {
       builder: (context) {
         final screenHeight = MediaQuery.of(context).size.height;
         final screenWidth = MediaQuery.of(context).size.width;
+        final viewInsets = MediaQuery.of(context).viewInsets;
 
-        return SizedBox(
-          height: screenHeight * 0.6,
-          width: screenWidth * 0.95,
-          child: Padding(
-            padding: EdgeInsets.all(16.0),
-            child: Column(
-              spacing: 16,
-              children: [
-                _buildNewPrincipleText(),
-                _buildTitleTextField(colorScheme),
-                _buildDescriptionTextField(colorScheme),
-                _buildActionButtonsRow(context)
-              ],
+        return Padding(
+          padding: viewInsets,
+          child: SizedBox(
+            height: screenHeight * 0.7,
+            width: screenWidth * 0.95,
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 16,
+                  children: [
+                    _buildNewPrincipleText(),
+                    _buildTitleTextField(colorScheme),
+                    _buildDescriptionTextField(colorScheme),
+                    _buildActionButtonsRow(context)
+                  ],
+                )
+              ),
             )
-          )
+          ),
         );
       }
     );
@@ -94,7 +101,8 @@ class CreatePrincipleSection extends StatelessWidget {
   }
 
   Widget _buildDescriptionTextField(AppColorsThemeExtension colorScheme){
-    return Expanded(
+    return Flexible(
+      fit: FlexFit.loose,
       child: TextField(
         controller: descriptionController,
         maxLines: 10, // before scrolling

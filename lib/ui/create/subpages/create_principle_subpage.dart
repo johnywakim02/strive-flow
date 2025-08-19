@@ -47,6 +47,7 @@ class _CreatePrincipleSubpageState extends State<CreatePrincipleSubpage> {
     final AppColorsThemeExtension colorScheme = Theme.of(context).extension<AppColorsThemeExtension>()!;
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: colorScheme.backgroundColor,
       appBar: AppBar(
         backgroundColor: colorScheme.appBarBackgroundColor,
