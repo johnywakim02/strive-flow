@@ -102,8 +102,8 @@ class AppColorsThemeExtension extends ThemeExtension<AppColorsThemeExtension> {
 
 final AppColorsThemeExtension appColorsThemeExtension = AppColorsThemeExtension(
   backgroundColor: AppColors.linen, 
-  tileGradientFirstColor: AppColors.lightButterCream,
-  tileGradientSecondColor: AppColors.softGoldenPeach,
+  tileGradientFirstColor: AppColors.dustyRose.withAlpha(180),
+  tileGradientSecondColor: AppColors.dustyRose.withAlpha(100),
   tabBarBackgroundColor: AppColors.dustyRose,
   tabBarItemSelectedColor: AppColors.warmRust,
   tabBarItemUnselectedColor: AppColors.paleRose,

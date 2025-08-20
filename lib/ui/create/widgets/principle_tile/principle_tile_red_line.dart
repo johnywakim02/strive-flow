@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:strive_flow/core/colors/app_colors.dart';
 
 class PrincipleTileRedLine extends StatelessWidget {
   const PrincipleTileRedLine({
@@ -11,7 +12,7 @@ class PrincipleTileRedLine extends StatelessWidget {
       offset: Offset(9, 0),
       child: Container(
         width: 3,
-        color: Colors.red,
+        color: AppColors.redOrange,
       ),
     );
   }

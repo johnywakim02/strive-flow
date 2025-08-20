@@ -7,4 +7,5 @@ class AppColors {
   static Color dustyRose = Color(0xFFD8B7A3);
   static Color paleRose = Color(0xFFF5DFDF);
   static Color warmRust = Color(0xB85A4E4E);
+  static Color redOrange = Color(0xFFFF3B20);
 }
