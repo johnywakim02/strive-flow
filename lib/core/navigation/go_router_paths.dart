@@ -6,4 +6,5 @@ class GoRouterPaths {
     "/level_up"
   ];
   static String createPrinciple = '/create/principle';
+  static String createRule = '/create/rule';
 }

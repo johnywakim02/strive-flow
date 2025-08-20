@@ -5,6 +5,7 @@ import 'package:strive_flow/core/navigation/go_router_paths.dart';
 import 'package:strive_flow/core/ui/pages/tabbed_scaffold.dart';
 import 'package:strive_flow/ui/create/create_page.dart';
 import 'package:strive_flow/ui/create/subpages/create_principle_subpage.dart';
+import 'package:strive_flow/ui/create/subpages/create_rule_subpage.dart';
 
 GoRouter router = GoRouter(
   initialLocation: GoRouterPaths.tabRoutes[0],
@@ -15,6 +16,12 @@ GoRouter router = GoRouter(
         //final tabReturnIndex = state.extra as int? ?? 0; // can later be used when returning to the original page
         return CreatePrincipleSubpage();
       },
+    ),
+    GoRoute(
+      path: GoRouterPaths.createRule,
+      builder: (context, state){
+        return CreateRuleSubpage();
+      }
     ),
     ShellRoute(
       builder: (context, state, child) {

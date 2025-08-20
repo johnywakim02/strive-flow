@@ -12,8 +12,8 @@ class CreatePage extends StatelessWidget{
     context.push(GoRouterPaths.createPrinciple, extra: _selectedIndex);
   }
   
-  void handleRulesOnTapped(){
-    debugPrint("To Implement");
+  void handleRulesOnTapped(BuildContext context){
+    context.push(GoRouterPaths.createRule, extra: _selectedIndex);
   }
 
   void handleHabitsOnTapped(){
@@ -47,7 +47,7 @@ class CreatePage extends StatelessWidget{
             CreateOptionCard(
               title: "Rules", 
               iconData: Icons.menu_book_outlined,
-              onTap: handleRulesOnTapped 
+              onTap: () => handleRulesOnTapped(context)
             ),
             CreateOptionCard(
               title: "Habits",
