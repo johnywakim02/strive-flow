@@ -4,15 +4,24 @@
 
 import 'package:hive_ce/hive.dart';
 import 'package:strive_flow/domain/models/principle/principle.dart';
+import 'package:strive_flow/domain/models/rule/rule.dart';
+import 'package:strive_flow/domain/models/rule/rule_severity_adapter.dart';
+import 'package:strive_flow/domain/models/rule/rule_type_adapter.dart';
 
 extension HiveRegistrar on HiveInterface {
   void registerAdapters() {
     registerAdapter(PrincipleAdapter());
+    registerAdapter(RuleAdapter());
+    registerAdapter(RuleSeverityAdapter());
+    registerAdapter(RuleTypeAdapter());
   }
 }
 
 extension IsolatedHiveRegistrar on IsolatedHiveInterface {
   void registerAdapters() {
     registerAdapter(PrincipleAdapter());
+    registerAdapter(RuleAdapter());
+    registerAdapter(RuleSeverityAdapter());
+    registerAdapter(RuleTypeAdapter());
   }
 }

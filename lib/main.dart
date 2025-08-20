@@ -7,6 +7,7 @@ import 'package:strive_flow/core/colors/app_colors_theme_extension.dart';
 import 'package:strive_flow/core/navigation/go_router_routes.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 import 'package:strive_flow/domain/models/principle/principle.dart';
+import 'package:strive_flow/domain/models/rule/rule.dart';
 import 'package:strive_flow/hive_registrar.g.dart';
 
 void main() async {
@@ -20,6 +21,7 @@ void main() async {
   }
   Hive.registerAdapters();
   await Hive.openBox<Principle>('principles');
+  await Hive.openBox<Rule>('rules');
 
   runApp(const MyApp());
 }
