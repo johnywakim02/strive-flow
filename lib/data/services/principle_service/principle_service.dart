@@ -1,9 +1,7 @@
-import 'package:strive_flow/domain/models/principle/principle.dart';
-
 abstract class PrincipleService {
-  Future<List<Principle>> readAllPrinciples();
-  Future<Principle?> readPrinciple(int index);
-  Future<bool> addPrinciple(Principle principle);
-  Future<bool> updatePrinciple(int index, Principle updatedPrinciple);
-  Future<bool> deletePrinciple(int index);
+  Future<List<Map<String, dynamic>>> readAll();
+  Future<Map<String, dynamic>?> read(int index);
+  Future<void> add(Map<String, dynamic> rawData);
+  Future<void> update(int index, Map<String, dynamic> rawData);
+  Future<void> delete(int index);
 }

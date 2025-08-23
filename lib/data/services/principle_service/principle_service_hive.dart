@@ -1,59 +1,32 @@
 import 'package:hive_ce/hive.dart';
 import 'package:strive_flow/data/services/principle_service/principle_service.dart';
-import 'package:strive_flow/domain/models/principle/principle.dart';
-
 class HivePrincipleService implements PrincipleService {
-  final Box<Principle> _box;
+  final Box<Map<String, dynamic>> _box;
 
   HivePrincipleService(this._box);
 
   @override
-  Future<List<Principle>> readAllPrinciples() async {
-    try {
-      return _box.values.toList();
-    } catch (e) {
-      return <Principle>[];
-    }
+  Future<List<Map<String, dynamic>>> readAll() async {
+    return _box.values.toList();
   }
 
   @override
-  Future<Principle?> readPrinciple(int index) async {
-    try {
-      return _box.getAt(index);
-    } catch (e) {
-      return null;
-    }
+  Future<Map<String, dynamic>?> read(int index) async {
+    return _box.getAt(index);
   }
 
   @override
-  Future<bool> addPrinciple(Principle principle) async {
-    try {
-      await _box.add(principle);
-      return true;
-    } catch (e) {
-      return false;
-    }
+  Future<void> add(Map<String, dynamic> rawData) async {
+    await _box.add(rawData);
   }
 
   @override
-  Future<bool> updatePrinciple(int index, Principle updatedPrinciple) async {
-    try {
-      if (_box.getAt(index) == null) return false;
-      await _box.putAt(index, updatedPrinciple);
-      return true;
-    } catch (e) {
-      return false;
-    }
+  Future<void> update(int index, Map<String, dynamic> rawData) async {
+    await _box.putAt(index, rawData);
   }
 
   @override
-  Future<bool> deletePrinciple(int index) async {
-    try {
-      if (_box.getAt(index) == null) return false;
-      await _box.deleteAt(index);
-      return true;
-    } catch (e) {
-      return false;
-    }
+  Future<void> delete(int index) async {
+    await _box.deleteAt(index);
   }
 }
