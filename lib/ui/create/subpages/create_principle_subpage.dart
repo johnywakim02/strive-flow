@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hive_ce/hive.dart';
+import 'package:provider/provider.dart';
 import 'package:strive_flow/core/colors/app_colors_theme_extension.dart';
-import 'package:strive_flow/domain/models/principle/principle.dart';
+import 'package:strive_flow/ui/create/subpages/create_principle_view_model.dart';
 import 'package:strive_flow/ui/create/widgets/create_principle_section.dart';
 import 'package:strive_flow/ui/create/widgets/my_principles_section.dart';
 
@@ -15,35 +15,26 @@ class CreatePrincipleSubpage extends StatefulWidget {
 class _CreatePrincipleSubpageState extends State<CreatePrincipleSubpage> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
-  late Box<Principle> _principleBox;
 
   @override
   void initState() {
     super.initState();
-    _principleBox = Hive.box<Principle>('principles');
+    // Defer the call to ensure context is available
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<CreatePrincipleViewModel>().loadPrinciples();
+    });
   }
 
-  void _addPrinciple() {
-    final text = _titleController.text.trim();
-    final description = _descriptionController.text.trim();
-    final Principle principle = Principle(title: text, description: description);
-    if (text.isNotEmpty) {
-      _principleBox.add(principle);
-      _titleController.clear();
-      _descriptionController.clear();
-      setState(() {});
-    }
-  }
-
-  Future<void> _deletePrinciple(int index) async {
-    final keyToDelete = _principleBox.keyAt(index);
-    await _principleBox.delete(keyToDelete);
-    setState(() {});
+  Future<void> _onAdd() async {
+    final vm = context.read<CreatePrincipleViewModel>();
+    await vm.addPrinciple(_titleController.text, _descriptionController.text);
+    _titleController.clear();
+    _descriptionController.clear();
   }
 
   @override
   Widget build(BuildContext context) {
-    final principles = _principleBox.values.toList();
+    final CreatePrincipleViewModel vm = context.watch<CreatePrincipleViewModel>();
     final AppColorsThemeExtension colorScheme = Theme.of(context).extension<AppColorsThemeExtension>()!;
 
     return Scaffold(
@@ -54,14 +45,27 @@ class _CreatePrincipleSubpageState extends State<CreatePrincipleSubpage> {
         title: const Text("Principles"),
         centerTitle: true,
       ),
-      body: MyPrinciplesSection(
-        principles: principles, 
-        onDelete: _deletePrinciple,
+      body: Builder(
+        builder: (context) {
+          if (vm.isLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
+
+          if (vm.error != null) {
+            return Center(child: Text(vm.error!));
+          }
+
+          return MyPrinciplesSection(
+            principles: vm.principles,
+            onDelete: vm.deletePrinciple,
+          );
+        },
       ),
+
       floatingActionButton: CreatePrincipleSection(
         titleController: _titleController,
         descriptionController: _descriptionController,
-        onAdd: _addPrinciple,
+        onAdd: _onAdd,
       ),
     );
   }

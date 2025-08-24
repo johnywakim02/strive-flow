@@ -38,6 +38,9 @@ dependencies:
   # for navigation, we use go_router
   go_router: ^16.0.0
 
+  # for DI and state management
+  provider: ^6.1.5+1
+
   # for database storage, we use hive
   hive_ce: ^2.11.3
   hive_ce_flutter: ^2.3.1

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:strive_flow/core/colors/app_colors_theme_extension.dart';
 import 'package:strive_flow/core/navigation/go_router_paths.dart';
+import 'package:strive_flow/core/provider/page_vm_providers.dart';
 import 'package:strive_flow/core/ui/pages/tabbed_scaffold.dart';
 import 'package:strive_flow/ui/create/create_page.dart';
 import 'package:strive_flow/ui/create/subpages/create_principle_subpage.dart';
@@ -14,7 +16,10 @@ GoRouter router = GoRouter(
       path: GoRouterPaths.createPrinciple,
       builder: (context, state){
         //final tabReturnIndex = state.extra as int? ?? 0; // can later be used when returning to the original page
-        return CreatePrincipleSubpage();
+        return MultiProvider(
+          providers: principleSubPageProviders,
+          child: CreatePrincipleSubpage()
+        );
       },
     ),
     GoRoute(
