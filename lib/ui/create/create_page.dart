@@ -16,8 +16,8 @@ class CreatePage extends StatelessWidget{
     context.push(GoRouterPaths.createRule, extra: _selectedIndex);
   }
 
-  void handleHabitsOnTapped(){
-    debugPrint("To Implement");
+  void handleHabitsOnTapped(BuildContext context){
+    context.push(GoRouterPaths.createHabit, extra: _selectedIndex);
   }
 
   void handleToolsOnTapped(){
@@ -52,7 +52,7 @@ class CreatePage extends StatelessWidget{
             CreateOptionCard(
               title: "Habits",
               iconData: Icons.check_circle_outline,
-              onTap: handleHabitsOnTapped  
+              onTap: () => handleHabitsOnTapped(context)
             ),
             CreateOptionCard(
               title: "Tools",

@@ -7,4 +7,5 @@ class GoRouterPaths {
   ];
   static String createPrinciple = '/create/principle';
   static String createRule = '/create/rule';
+  static String createHabit = '/create/habit';
 }

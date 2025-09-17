@@ -6,6 +6,7 @@ import 'package:strive_flow/core/navigation/go_router_paths.dart';
 import 'package:strive_flow/core/provider/page_vm_providers.dart';
 import 'package:strive_flow/core/ui/pages/tabbed_scaffold.dart';
 import 'package:strive_flow/ui/create/create_page.dart';
+import 'package:strive_flow/ui/create/subpages/create_habit_subpage.dart';
 import 'package:strive_flow/ui/create/subpages/create_principle_subpage.dart';
 import 'package:strive_flow/ui/create/subpages/create_rule_subpage.dart';
 
@@ -26,6 +27,12 @@ GoRouter router = GoRouter(
       path: GoRouterPaths.createRule,
       builder: (context, state){
         return CreateRuleSubpage();
+      }
+    ),
+    GoRoute(
+      path: GoRouterPaths.createHabit,
+      builder: (context, state){
+        return CreateHabitSubpage();
       }
     ),
     ShellRoute(
