@@ -19,6 +19,8 @@ class AppColorsThemeExtension extends ThemeExtension<AppColorsThemeExtension> {
   final Color textFieldFocusedBorderColor;
   final Color textFieldLabelColor;
   final Color textFieldHintColor;
+  final Color calendarTodayColor;
+  final Color calendarSelectedColor;
 
   AppColorsThemeExtension({
     required this.backgroundColor,
@@ -36,6 +38,8 @@ class AppColorsThemeExtension extends ThemeExtension<AppColorsThemeExtension> {
     required this.textFieldFocusedBorderColor,
     required this.textFieldLabelColor,
     required this.textFieldHintColor,
+    required this.calendarTodayColor,
+    required this.calendarSelectedColor,
   });
 
   @override
@@ -55,6 +59,8 @@ class AppColorsThemeExtension extends ThemeExtension<AppColorsThemeExtension> {
     Color? textFieldFocusedBorderColor,
     Color? textFieldLabelColor,
     Color? textFieldHintColor,
+    Color? calendarTodayColor,
+    Color? calendarSelectedColor
   }){
     return AppColorsThemeExtension(
       backgroundColor: backgroundColor ?? this.backgroundColor, 
@@ -72,6 +78,8 @@ class AppColorsThemeExtension extends ThemeExtension<AppColorsThemeExtension> {
       textFieldFocusedBorderColor: textFieldFocusedBorderColor ?? this.textFieldFocusedBorderColor,
       textFieldLabelColor: textFieldLabelColor ?? this.textFieldLabelColor,
       textFieldHintColor: textFieldHintColor ?? this.textFieldHintColor,
+      calendarTodayColor: calendarTodayColor ?? this.calendarTodayColor,
+      calendarSelectedColor: calendarSelectedColor ?? this.calendarSelectedColor,
     );
   }
 
@@ -96,6 +104,8 @@ class AppColorsThemeExtension extends ThemeExtension<AppColorsThemeExtension> {
       textFieldFocusedBorderColor: Color.lerp(textFieldFocusedBorderColor, other.textFieldFocusedBorderColor, t)!,
       textFieldLabelColor: Color.lerp(textFieldLabelColor, other.textFieldLabelColor, t)!,
       textFieldHintColor: Color.lerp(textFieldHintColor, other.textFieldHintColor, t)!,
+      calendarTodayColor: Color.lerp(calendarTodayColor, other.calendarTodayColor, t)!,
+      calendarSelectedColor: Color.lerp(calendarSelectedColor, other.calendarSelectedColor, t)!
     );
   }
 }
@@ -116,4 +126,6 @@ final AppColorsThemeExtension appColorsThemeExtension = AppColorsThemeExtension(
   textFieldFocusedBorderColor: AppColors.dustyRose,
   textFieldLabelColor: AppColors.warmRust,
   textFieldHintColor: AppColors.warmRust,
+  calendarTodayColor: AppColors.dustyRose,
+  calendarSelectedColor: AppColors.warmRust
 );
