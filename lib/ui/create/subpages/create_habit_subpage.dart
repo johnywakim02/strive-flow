@@ -28,10 +28,14 @@ class _CreateHabitSubpageState extends State<CreateHabitSubpage> with TickerProv
 
     return Scaffold(
       backgroundColor: colorScheme.backgroundColor,
+      
       appBar: AppBar(
         backgroundColor: colorScheme.appBarBackgroundColor,
         title: const Text("Habits"),
         centerTitle: true,
+        actions: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.dashboard))
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
