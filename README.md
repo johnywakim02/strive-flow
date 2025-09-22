@@ -19,3 +19,10 @@ To delete boxes (or even all data):
 - inside inspect, go to application tab
 - find IndexedDB and expand it
 - you will be able to see the box data and delete said data/boxes
+
+
+# Ideas
+
+- Add a page for usual habits and custom habits. 
+- Add a page for inspirations for rules and principles
+- Add a page to explain what each is and how it work
